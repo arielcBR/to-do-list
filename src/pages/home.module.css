@@ -1,0 +1,143 @@
+
+header{
+    background: var(--gray-700);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 12rem;
+    width: 100%;
+
+}
+
+header > img {
+    cursor: pointer;
+    height: 4.5rem;
+    width: 11.6rem;
+    transition: 0.2s;
+}
+
+header > img:hover {
+    transform: scale(1.1);
+}
+
+.container{
+    background: var(--gray-600);
+    display: flex;
+    padding: 0 22rem;
+    height: calc(100vh - 12rem);
+    width: 100%;
+}
+
+main{
+    margin: 0 auto;
+    width: 100%;
+}
+
+main > form{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    margin-top: -2.8195rem;
+}
+
+main > form > input {
+    background: var(--gray-500);
+    border: 1px solid var(--gray-700);
+    border-radius: 0.8rem;
+    color: var(--gray-100);
+    font-size: 1.6rem;
+    line-height: 1.4;
+    padding: 1.6rem;
+    width: 100%;
+
+    input::placeholder{
+        color: var(--gray-300);
+        line-height: 1.4;
+    }
+}
+
+main > form > button{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+
+    background: var(--blue-dark);
+    border: none;
+    border-radius: 0.8rem;
+    color: var(--gray-100);
+    cursor: pointer;
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.4;
+    padding: 1.6rem;
+    text-align: center;
+    width: 9rem;
+
+    > svg{
+        height: 1.6rem;
+        width: 1.6rem;
+    }
+}
+
+main > form > button:hover{
+    background: var(--blue);
+    color: var(--gray-500);
+}
+
+.table{
+    margin-top: 6.4rem;
+}
+
+.tableHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tableHeader > div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    font-weight: 700;
+}
+
+.tableHeader > div > p{
+    font-size: 1.4rem;
+}
+
+.tasksCreated > p:first-child{
+    color: var(--blue);
+}
+
+.tasksFinished > p:first-child{
+    color: var(--purple);
+}
+
+.tableHeader > div > p:last-child{
+    background: var(--gray-400);
+    border-radius: 50%;
+    color: var(--gray-200);
+    padding: 0.2rem 0.8rem;
+}
+
+.tableBody{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.6rem;
+
+    border-radius: 8px;
+    border-top: 1px solid var(--gray-400);
+    margin-top: 2.4rem;
+    padding: 6.4rem 2.4rem;
+}
+
+.tableBody > div > p{
+    color: var(--gray-300);
+    line-height: 1.4;
+}
+

@@ -1,0 +1,30 @@
+:root{
+    --blue: #4EA8DE;
+    --blue-dark: #1E6F9F;
+    --gray-100: #F2F2F2;
+    --gray-300: #808080;
+    --gray-400: #333;
+    --gray-500: #262626;
+    --gray-600: #1A1A1A;
+    --gray-700: #0D0D0D;
+    --purple: #8284FA;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body, input, textarea, button {
+    background: var(--gray-600);
+    font-size: 1.6rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+}
