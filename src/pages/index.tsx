@@ -3,6 +3,8 @@ import logo from '../assets/logo.png'
 import empty from '../assets/empty.svg'
 import styles from './home.module.css'
 
+import { Task } from '../components/Task/Task'
+
 export function Home(){
 
 
@@ -37,11 +39,14 @@ return (
                     </div>
 
                     <div className={styles.tableBody}>
-                        <img src={empty}/>
-                        <div>
-                            <p><strong>Você ainda não tem tarefas cadastradas</strong></p>
-                            <p>Crie tarefas e organize seus itens a fazer</p>
-                        </div>
+                        <Task content={'Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.'}/>
+                        {/* <div className={styles.wrapperEmptyState}>
+                            <img src={empty}/>
+                            <div>
+                                <p><strong>Você ainda não tem tarefas cadastradas</strong></p>
+                                <p>Crie tarefas e organize seus itens a fazer</p>
+                            </div>
+                        </div> */}
                     </div>
                 </div>
             </main>

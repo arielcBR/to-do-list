@@ -94,6 +94,7 @@ main > form > button:hover{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 2.4rem;
 }
 
 .tableHeader > div{
@@ -123,7 +124,7 @@ main > form > button:hover{
     padding: 0.2rem 0.8rem;
 }
 
-.tableBody{
+.wrapperEmptyState{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -132,11 +133,10 @@ main > form > button:hover{
 
     border-radius: 8px;
     border-top: 1px solid var(--gray-400);
-    margin-top: 2.4rem;
     padding: 6.4rem 2.4rem;
 }
 
-.tableBody > div > p{
+.wrapperEmptyState > div > p{
     color: var(--gray-300);
     line-height: 1.4;
 }
