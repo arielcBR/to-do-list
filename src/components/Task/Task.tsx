@@ -10,20 +10,22 @@ interface TaskProps {
 }
 
 export function Task({content, onDelete, onChange, id}: TaskProps){
-  
+
     function handleDeleteTask(event: FormEvent){
         event.preventDefault();
     }
 
     return (
         <form onSubmit={handleDeleteTask}>
-            <label className={styles.form} htmlFor={id}>
+            <div className={styles.group}>
+                <label className={styles.label} htmlFor={id}/>
                 <input
                     className={styles.checkbox}
                     type="checkbox"
                     id={id} 
                     onChange={(event)=> onChange(id, event.target.checked)}
-                    value=""/>
+                    value=""
+                />
                 <p className={styles.description}>{content}</p>
                 <button 
                     className={styles.trashButton} 
@@ -32,7 +34,7 @@ export function Task({content, onDelete, onChange, id}: TaskProps){
                 >
                     <RiDeleteBin6Line/>
                 </button>
-            </label>
+            </div>
         </form>
     )
 }

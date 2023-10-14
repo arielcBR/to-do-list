@@ -69,8 +69,6 @@ export function Home(){
         event.target.setCustomValidity("Este campo é obrigatório!");
     }
 
-    console.log(tasks);
-    
 return (
     <div>
         <header>
