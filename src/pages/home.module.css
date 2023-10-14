@@ -4,9 +4,8 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 12rem;
+    height: 20rem;
     width: 100%;
-
 }
 
 header > img {
@@ -84,6 +83,11 @@ main > form > button{
 main > form > button:hover{
     background: var(--blue);
     color: var(--gray-500);
+}
+
+main > form > button:disabled{
+    cursor: not-allowed;
+    opacity: 50%;
 }
 
 .table{
