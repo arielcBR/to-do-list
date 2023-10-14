@@ -16,7 +16,7 @@ header > img {
 }
 
 header > img:hover {
-    transform: scale(1.1);
+    transform: scale(1.03);
 }
 
 .container{
@@ -87,7 +87,7 @@ main > form > button:hover{
 
 main > form > button:disabled{
     cursor: not-allowed;
-    opacity: 50%;
+    opacity: 80%;
 }
 
 .table{

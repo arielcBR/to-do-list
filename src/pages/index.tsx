@@ -7,12 +7,22 @@ import styles from './home.module.css'
 
 import { Task } from '../components/Task/Task'
 
+interface Task {
+    content: string;
+    id: string;
+    isChecked: boolean;
+}
 
 export function Home(){
-    const [tasks, setTasks] = useState<Array<string>>([]);
+    const [tasks, setTasks] = useState<Array<Task>>([]);
     const [newTask, setNewTask] = useState("");
     const [createdTasksCounter, setCreatedTasksCounter] = useState(0);
-    // const [finishedTasksCounter, setFinishedTasksCounter] = useState(0);
+    const FinishedTasksCounter = tasks.reduce((acum, task) =>{
+            if(task.isChecked)
+                acum++;
+            return acum;
+        }, 0);
+    
 
     const isNewTaskEmpty = !newTask.length;
 
@@ -26,18 +36,39 @@ export function Home(){
         const taskValidation = newTask.trim();
         
         if(taskValidation.length) {
-            setTasks([...tasks, newTask]);
+            setTasks([...tasks, {
+                id: uuidv4(),
+                isChecked: false,
+                content: newTask
+            }]);
             setCreatedTasksCounter(tasks.length + 1);
             setNewTask("");
         }
+    }
+
+    function handleDeleteTask(taskToDelete: string){
+        const newTasksWithoutDeletedOne = tasks.filter(task => taskToDelete != task.id);
+        setTasks(newTasksWithoutDeletedOne);
+    }
+
+    function handleOnCheckedChange(id: string, checked: boolean){
+        const newTasks = tasks.map(task => {
+            if(task.id == id)
+                return {
+                    ...task,
+                    isChecked: checked
+                };
+            return task;
+        })
+        setTasks(newTasks);
     }
 
     function handleNewTaskInvalid(event: InvalidEvent<HTMLInputElement>){
         event.target.setCustomValidity("Este campo é obrigatório!");
     }
 
-
-
+    console.log(tasks);
+    
 return (
     <div>
         <header>
@@ -71,7 +102,7 @@ return (
 
                         <div className={styles.tasksFinished}>
                             <p>Concluídas</p>
-                            <p>0</p>
+                            <p>{FinishedTasksCounter}</p>
                         </div>
                     </div>
 
@@ -85,11 +116,18 @@ return (
                                     <p><strong>Você ainda não tem tarefas cadastradas</strong></p>
                                     <p>Crie tarefas e organize seus itens a fazer</p>
                                 </div>
-                            </div>)  
+                            </div>
+                        )  
                         : 
                         (
                             tasks.map(task => (
-                                <Task key={uuidv4()} content={task}/>
+                                <Task 
+                                    key={task.id}
+                                    id={task.id}
+                                    content={task.content}
+                                    onDelete={handleDeleteTask}
+                                    onChange={handleOnCheckedChange}
+                                />
                             ))
                         )
                     }
