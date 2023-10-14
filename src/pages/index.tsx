@@ -16,7 +16,8 @@ interface Task {
 export function Home(){
     const [tasks, setTasks] = useState<Array<Task>>([]);
     const [newTask, setNewTask] = useState("");
-    const [createdTasksCounter, setCreatedTasksCounter] = useState(0);
+    
+    const CreatedTasksCounter = tasks.length;
     const FinishedTasksCounter = tasks.reduce((acum, task) =>{
             if(task.isChecked)
                 acum++;
@@ -29,6 +30,7 @@ export function Home(){
     function handleNewTask(event: ChangeEvent<HTMLInputElement>){
         event.target.setCustomValidity("");
         setNewTask(event.target.value);
+        event.target.value = "";
     }
     
     function handleCreateNewTask(event: FormEvent){
@@ -41,9 +43,9 @@ export function Home(){
                 isChecked: false,
                 content: newTask
             }]);
-            setCreatedTasksCounter(tasks.length + 1);
             setNewTask("");
         }
+
     }
 
     function handleDeleteTask(taskToDelete: string){
@@ -97,7 +99,7 @@ return (
                     <div className={styles.tableHeader}>
                         <div className={styles.tasksCreated}>
                             <p>Tarefas criadas</p>
-                            <p>{createdTasksCounter}</p>
+                            <p>{CreatedTasksCounter}</p>
                         </div>
 
                         <div className={styles.tasksFinished}>
